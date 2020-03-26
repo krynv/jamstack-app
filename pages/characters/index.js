@@ -1,8 +1,8 @@
 import Layout from "../../components/Layout";
-import characters from "../../data/characters.json";
 import Link from "next/link";
+import fetch from "isomorphic-unfetch";
 
-const Characters = () => (
+const Characters = ({ characters }) => (
   <>
     <Layout />
     <h1>Character List</h1>
@@ -19,5 +19,11 @@ const Characters = () => (
     </ul>
   </>
 );
+
+Characters.getInitialProps = async () => {
+  const response = await fetch("http://localhost:3000/api/characters");
+  const characters = await response.json();
+  return { characters };
+};
 
 export default Characters;
