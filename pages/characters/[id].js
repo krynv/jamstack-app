@@ -1,20 +1,8 @@
 import Layout from "../../components/Layout";
-
-// import { useRouter } from "next/router";
-import characters from "../../data/characters.json";
+import fetch from "isomorphic-unfetch";
 
 const Character = ({ character }) => {
-  // const Character = () => {
-  //   const router = useRouter();
-  //   const character = characters[router.query.id];
-
   return (
-    // <Layout>
-    //   <h1>{character?.name}</h1>
-    //   <p>
-    //     {character?.name} is from {character?.homeworld}
-    //   </p>
-    // </Layout>
     <Layout>
       <h1>{character.name}</h1>
       <p>
@@ -24,10 +12,10 @@ const Character = ({ character }) => {
   );
 };
 
-// without ssr
-Character.getInitialProps = ({ query }) => {
+Character.getInitialProps = async ({ query }) => {
   const { id } = query;
-  const character = characters[id];
+  const reponse = await fetch(`http://localhost:3000/api/characters/${id}`);
+  const character = await reponse.json();
   return { character };
 };
 
