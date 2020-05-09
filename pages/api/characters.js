@@ -1,3 +1,4 @@
+require("dotenv").config();
 import fetch from "isomorphic-unfetch";
 
 export default async function characters(req, res) {

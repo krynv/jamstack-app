@@ -1,11 +1,13 @@
 import React from "react";
 import Layout from "../components/Layout";
+import { useFetchUser } from "../lib/user";
 
 const Home = () => {
+  const { user, loading } = useFetchUser();
   return (
-    <Layout>
+    <Layout user={user}>
       <div className="jumbotron">
-        <h1 className="display-3">Ster Wers Chars</h1>
+        <h1 className="display-3">Star Wars Characters</h1>
         <p className="lead">
           This is an example app on showcasing{" "}
           <a href="https://nextjs.org/">Next.js</a>,{" "}
@@ -20,7 +22,7 @@ const Home = () => {
             <code>/api/characters</code> - List all characters
           </li>
           <li>
-            <code>/api/character/ID</code> - List given character
+            <code>/api/character/ID</code> - List one character
           </li>
           <li>
             <code>/api/favourites</code> - List user favourites

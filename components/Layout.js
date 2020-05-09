@@ -1,12 +1,12 @@
 import React from "react";
 import Head from "next/head";
 import Nav from "./Nav";
+import { UserProvider } from "../lib/user";
 
-const Layout = ({ children }) => (
-  <>
+const Layout = ({ user, loading = false, children }) => (
+  <UserProvider value={{ user, loading }}>
     <Head>
-      <title>Ster Wers</title>
-      <link rel="icon" href="/favicon.ico" />
+      <title>Star Wars Characters</title>
     </Head>
 
     <Nav />
@@ -14,7 +14,7 @@ const Layout = ({ children }) => (
     <main>
       <div className="container">{children}</div>
     </main>
-  </>
+  </UserProvider>
 );
 
 export default Layout;
