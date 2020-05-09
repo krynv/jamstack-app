@@ -2,10 +2,12 @@ import React from "react";
 import Layout from "../../components/Layout";
 import CharacterCard from "../../components/CharacterCard";
 import fetch from "isomorphic-unfetch";
+import { useFetchUser } from "../../lib/user";
 
 const Character = (props) => {
+  const { user, loading } = useFetchUser();
   return (
-    <Layout>
+    <Layout user={user}>
       <CharacterCard
         name={props.name}
         weapon={props.weapon}

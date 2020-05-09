@@ -2,11 +2,13 @@ import React from "react";
 import Link from "../../components/Link";
 import Layout from "../../components/Layout";
 import api from "../../lib/api";
+import { useFetchUser } from "../../lib/user";
 
 const Characters = () => {
+  const { user, loading } = useFetchUser();
   const { response, error, isLoading } = api("/api/characters");
   return (
-    <Layout>
+    <Layout user={user}>
       <h1>Character List</h1>
       <ul>
         {!isLoading &&
