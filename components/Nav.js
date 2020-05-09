@@ -1,4 +1,5 @@
-import Link from "next/link";
+import React from "react";
+import Link from "./Link";
 
 const Nav = () => (
   <nav className="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
