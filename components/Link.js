@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 export default ({ href, children, as }) => {
   const router = useRouter();
   let className = children.props.className || "";
-  console.log(`/${router.pathname.split("/")[1]}`);
   if (
     router.pathname === href ||
     `/${router.pathname.split("/")[1]}` === href
