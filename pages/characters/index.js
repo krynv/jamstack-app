@@ -12,7 +12,10 @@ const Characters = () => {
         {!isLoading &&
           response.map((character, index) => (
             <li key={index}>
-              <Link href="/characters/[id]" as={`/characters/${index}`}>
+              <Link
+                href="/characters/[id]"
+                as={`/characters/${character.$loki}`}
+              >
                 <a>{character.name}</a>
               </Link>
             </li>
