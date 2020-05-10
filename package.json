@@ -12,6 +12,8 @@
     "cloudinary-react": "^1.5.0",
     "dotenv": "^8.2.0",
     "isomorphic-unfetch": "^3.0.0",
+    "js-cookie": "^2.2.1",
+    "jwt-decode": "^2.2.0",
     "next": "9.3.6",
     "react": "16.13.1",
     "react-dom": "16.13.1"
